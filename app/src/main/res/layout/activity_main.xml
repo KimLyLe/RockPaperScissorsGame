@@ -6,17 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+    a
+
     <TextView
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:text="@string/tvWelcome"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <TextView
         android:id="@+id/tvInstruction"
@@ -42,11 +62,11 @@
         android:id="@+id/tvWin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="168dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="172dp"
         android:text="@string/tvWin"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <TextView
         android:id="@+id/tvDraw"
@@ -62,11 +82,11 @@
         android:id="@+id/tvLose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
-        android:layout_marginEnd="96dp"
+        android:layout_marginTop="172dp"
+        android:layout_marginEnd="80dp"
         android:text="@string/tvLose"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <TextView
         android:id="@+id/tvAnnouncement"
@@ -85,23 +105,23 @@
         android:layout_width="75dp"
         android:layout_height="88dp"
         android:layout_marginStart="72dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="292dp"
         android:background="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         app:srcCompat="@drawable/paper" />
 
     <TextView
         android:id="@+id/tvVS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="serif"
         android:text="@string/tvVS"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/ivYou"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toEndOf="@+id/ivPC"
         app:layout_constraintTop_toBottomOf="@+id/tvAnnouncement" />
 
@@ -109,11 +129,11 @@
         android:id="@+id/ivYou"
         android:layout_width="75dp"
         android:layout_height="90dp"
-        android:layout_marginTop="320dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginTop="292dp"
+        android:layout_marginEnd="60dp"
         android:background="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         app:srcCompat="@drawable/rock" />
 
     <TextView
@@ -140,7 +160,7 @@
         android:id="@+id/ivPaper"
         android:layout_width="109dp"
         android:layout_height="101dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginBottom="28dp"
         android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -151,17 +171,19 @@
         android:id="@+id/ivRock"
         android:layout_width="119dp"
         android:layout_height="99dp"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="28dp"
         android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ivScissors"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/ivPaper"
         app:srcCompat="@drawable/rock" />
 
     <ImageView
         android:id="@+id/ivScissors"
-        android:layout_width="108dp"
-        android:layout_height="99dp"
+        android:layout_width="112dp"
+        android:layout_height="98dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="28dp"
         android:background="@color/colorPrimary"

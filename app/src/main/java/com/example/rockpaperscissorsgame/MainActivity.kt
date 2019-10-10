@@ -2,6 +2,8 @@ package com.example.rockpaperscissorsgame
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.example.rockpaperscissorsgame.R
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -16,6 +18,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Show game history"
         initViews()
     }
 
@@ -93,5 +97,20 @@ class MainActivity : AppCompatActivity() {
         tvWin.text = getString(R.string.tvWin, win)
         tvAnnouncement.text = "You Win!"
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_show_history -> true
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+
 }
 
