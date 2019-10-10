@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">RockPaperScissors</string>
+    <string name="tvWelcome">Welcome</string>
+    <string name="tvInstruction">Instruction: Select rock, paper or scissor to play</string>
+    <string name="tvStatsTitle">Your all time statistics:</string>
+    <string name="tvWin">Win: %d</string>
+    <string name="tvDraw">Draw: %d</string>
+    <string name="tvLose">Lose: %d</string>
+    <string name="tvVS">V.S.</string>
+    <string name="tvComputer">Computer</string>
+    <string name="tvYou">You</string>
+    <string name="tvResult" />
+
+</resources>
