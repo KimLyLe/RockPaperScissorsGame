@@ -28,8 +28,9 @@
                 android:layout_height="30dp"
                 android:layout_gravity="end"
                 android:layout_marginEnd="16dp"
-                android:icon="@drawable/ic_access_time_black_24dp"
-/>
+                android:background="@color/colorPrimary"
+                android:src="@drawable/ic_access_time_black_24dp"
+                android:visibility="visible" />
 
         </androidx.appcompat.widget.Toolbar>
 
