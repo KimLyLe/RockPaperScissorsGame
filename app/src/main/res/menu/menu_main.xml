@@ -2,10 +2,4 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.rockpaperscissorsgame.MainActivity">
-    <item
-        android:id="@+id/action_show_history"
-        android:icon="@android:drawable/ic_menu_recent_history"
-        android:orderInCategory="100"
-        android:title="Show game history"
-        app:showAsAction="ifRoom" />
 </menu>

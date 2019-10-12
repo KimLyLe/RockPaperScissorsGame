@@ -6,10 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <include
-        android:id="@+id/action_show_history"
-        layout="@layout/activity_show_history"/>
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="0dp"
@@ -24,7 +20,18 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <ImageButton
+                android:id="@+id/action_show_history"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:icon="@drawable/ic_access_time_black_24dp"
+/>
+
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -178,8 +185,6 @@
         android:layout_marginBottom="28dp"
         android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ivScissors"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/ivPaper"
         app:srcCompat="@drawable/rock" />
 

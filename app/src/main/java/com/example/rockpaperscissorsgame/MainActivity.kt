@@ -26,8 +26,6 @@ var userWins: Boolean = false
 
 class MainActivity : AppCompatActivity() {
 
-    private val histories = arrayListOf<History>()
-    private val historyAdapter = HistoryAdapter(histories)
     private var pcChoice: Int = 1
     private var myChoice: Int = 1
     private var draw: Int = 0
@@ -38,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+        action_show_history.setOnClickListener{ startShowHistory() }
         historyRepository = HistoryRepository(this)
         initViews()
     }
@@ -52,7 +51,6 @@ class MainActivity : AppCompatActivity() {
                         withContext(Dispatchers.IO) {
                             historyRepository.insertHistory(history)
                         }
-                        getHistoryFromDatabase()
                     }
                 }
             }
@@ -60,10 +58,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     private fun initViews() {
-        rvHistory.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
-        rvHistory.adapter = historyAdapter
-        rvHistory.addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
-        getHistoryFromDatabase()
 
         ivScissors.setOnClickListener {
             onScissorsClick()
@@ -75,16 +69,6 @@ class MainActivity : AppCompatActivity() {
             onPaperClick()
         }
     }
-
-    private fun getHistoryFromDatabase() {
-        CoroutineScope(Dispatchers.Main).launch {
-            val histories = historyRepository.getAllHistories()
-            this@MainActivity.histories.clear()
-            this@MainActivity.histories.addAll(histories)
-            historyAdapter.notifyDataSetChanged()
-        }
-    }
-
 
     private fun pcChoice() {
         pcChoice = (1..3).random()
@@ -135,6 +119,9 @@ class MainActivity : AppCompatActivity() {
         draw++
         tvDraw.text = getString(R.string.tvDraw, draw)
         tvAnnouncement.text = "Draw!"
+        var result: String = "Draw!"
+        var history = History(result)
+        insertGameIntoDatabase(history)
     }
 
     private fun onResultYouLose() {
@@ -142,6 +129,9 @@ class MainActivity : AppCompatActivity() {
         lose++
         tvLose.text = getString(R.string.tvLose, lose)
         tvAnnouncement.text = "You Lose!"
+        var result: String = "You Lose!"
+        var history = History(result)
+        insertGameIntoDatabase(history)
     }
 
     private fun onResultYouWin() {
@@ -149,23 +139,17 @@ class MainActivity : AppCompatActivity() {
         win++
         tvWin.text = getString(R.string.tvWin, win)
         tvAnnouncement.text = "You Win!"
+        var result: String = "You Win!"
+        var history = History(result)
+        insertGameIntoDatabase(history)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        var id: Int = item.itemId
-
-        if (id == R.id.action_show_history) {
-            startShowHistory()
-            return true
+    private fun insertGameIntoDatabase(history: History) {
+        CoroutineScope(Dispatchers.Main).launch {
+            withContext(Dispatchers.IO) {
+                historyRepository.insertHistory(history)
+            }
         }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun startShowHistory() {
