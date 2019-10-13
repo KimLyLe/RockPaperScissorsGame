@@ -125,7 +125,7 @@
         android:id="@+id/tvComputer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="12dp"
         android:text="@string/tvComputer"
         app:layout_constraintStart_toStartOf="parent"

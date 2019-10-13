@@ -4,7 +4,9 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,6 +32,10 @@ class ShowHistory : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_history)
+        var toolbar: Toolbar = findViewById(R.id.historyToolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
         historyRepository = HistoryRepository(this)
         initViews()
     }
@@ -58,5 +64,14 @@ class ShowHistory : AppCompatActivity() {
             this@ShowHistory.histories.addAll(histories)
             historyAdapter.notifyDataSetChanged()
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return onBackButtonClick()
+    }
+
+    private fun onBackButtonClick(): Boolean {
+        finish()
+        return true
     }
 }

@@ -20,6 +20,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.*
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 const val SHOW_HISTORY_REQUEST_CODE = 100
 private lateinit var historyRepository: HistoryRepository
@@ -33,6 +38,11 @@ class MainActivity : AppCompatActivity() {
     private var draw: Int = 0
     private var lose: Int = 0
     private var win: Int = 0
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

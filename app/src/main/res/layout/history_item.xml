@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="251dp">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/tvYou"
@@ -40,17 +40,18 @@
             android:fontFamily="serif"
             android:text="@string/tvVS"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView2"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTimestamp"
+            app:layout_constraintVertical_bias="0.389" />
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="114dp"
-            android:layout_height="113dp"
+            android:layout_width="108dp"
+            android:layout_height="106dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="28dp"
+            android:layout_marginEnd="48dp"
             android:background="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTimestamp"
@@ -58,9 +59,9 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="123dp"
-            android:layout_height="111dp"
-            android:layout_marginStart="36dp"
+            android:layout_width="115dp"
+            android:layout_height="106dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="12dp"
             android:background="@color/colorPrimaryDark"
             app:layout_constraintStart_toStartOf="parent"
