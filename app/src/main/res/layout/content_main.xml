@@ -150,7 +150,7 @@
         android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/rock" />
+        app:srcCompat="@drawable/paper" />
 
     <ImageView
         android:id="@+id/ivRock"
@@ -161,7 +161,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/ivScissors"
         app:layout_constraintStart_toStartOf="@+id/ivPaper"
-        app:srcCompat="@drawable/paper" />
+        app:srcCompat="@drawable/rock" />
 
     <ImageView
         android:id="@+id/ivScissors"
