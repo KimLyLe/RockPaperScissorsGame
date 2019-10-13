@@ -166,7 +166,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun startShowHistory() {
         val intent = Intent(this, ShowHistory::class.java)
-        startActivity(intent)
         startActivityForResult(intent, SHOW_HISTORY_REQUEST_CODE)
     }
 }
