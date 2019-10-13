@@ -11,8 +11,11 @@ import java.util.*
 @Entity(tableName = "historyTable")
 data class History (
 
-    @ColumnInfo(name = "history")
+    @ColumnInfo(name = "result")
     var result: String,
+
+    @ColumnInfo(name = "date")
+    var date: Date,
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")

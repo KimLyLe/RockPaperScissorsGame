@@ -4,9 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.example.rockpaperscissorsgame.Model.Converters
 import com.example.rockpaperscissorsgame.Model.History
 
 @Database(entities = [History::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class HistoryRoomDatabase : RoomDatabase() {
 
     abstract fun historyDao(): HistoryDao

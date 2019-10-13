@@ -12,6 +12,7 @@ import com.example.rockpaperscissorsgame.DB.HistoryRepository
 import com.example.rockpaperscissorsgame.Model.History
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_show_history.*
+import kotlinx.android.synthetic.main.content_show_history.*
 import kotlinx.android.synthetic.main.history_item.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -37,6 +38,17 @@ class ShowHistory : AppCompatActivity() {
         rvHistory.adapter = historyAdapter
         rvHistory.addItemDecoration(DividerItemDecoration(this@ShowHistory, DividerItemDecoration.VERTICAL))
         getHistoryFromDatabase()
+        ibtnDelete.setOnClickListener{ onDeleteClick() }
+    }
+
+    private fun onDeleteClick() {
+        CoroutineScope(Dispatchers.Main).launch {
+            withContext(Dispatchers.IO) {
+                historyRepository.deleteHistory()
+            }
+            getHistoryFromDatabase()
+            historyAdapter.notifyDataSetChanged()
+        }
     }
 
     private fun getHistoryFromDatabase() {

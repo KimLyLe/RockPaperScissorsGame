@@ -14,10 +14,12 @@ import com.example.rockpaperscissorsgame.Model.History
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.toolbar
 import kotlinx.android.synthetic.main.activity_show_history.*
+import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.*
 
 const val SHOW_HISTORY_REQUEST_CODE = 100
 private lateinit var historyRepository: HistoryRepository
@@ -119,8 +121,8 @@ class MainActivity : AppCompatActivity() {
         draw++
         tvDraw.text = getString(R.string.tvDraw, draw)
         tvAnnouncement.text = "Draw!"
-        var result: String = "Draw!"
-        var history = History(result)
+        var result = "Draw!"
+        var history = History(result, Date())
         insertGameIntoDatabase(history)
     }
 
@@ -129,8 +131,8 @@ class MainActivity : AppCompatActivity() {
         lose++
         tvLose.text = getString(R.string.tvLose, lose)
         tvAnnouncement.text = "You Lose!"
-        var result: String = "You Lose!"
-        var history = History(result)
+        var result = "You Lose!"
+        var history = History(result, Date())
         insertGameIntoDatabase(history)
     }
 
@@ -139,8 +141,8 @@ class MainActivity : AppCompatActivity() {
         win++
         tvWin.text = getString(R.string.tvWin, win)
         tvAnnouncement.text = "You Win!"
-        var result: String = "You Win!"
-        var history = History(result)
+        var result = "You Win!"
+        var history = History(result, Date())
         insertGameIntoDatabase(history)
     }
 

@@ -34,6 +34,7 @@ class HistoryAdapter(private val histories: List<History>) : RecyclerView.Adapte
 
         fun bind(history: History) {
             itemView.tvResult.text = history.result
+            itemView.tvTimestamp.text = history.date.toString()
         }
     }
 }

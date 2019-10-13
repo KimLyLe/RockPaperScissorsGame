@@ -20,8 +20,8 @@ public class HistoryRepository(context: Context) {
         historyDao.insertHistory(history)
     }
 
-    suspend fun deleteHistory(history: History) {
-        historyDao.deleteHistory(history)
+    suspend fun deleteHistory() {
+        historyDao.deleteHistory()
     }
 
     suspend fun updateHistory(history: History) {

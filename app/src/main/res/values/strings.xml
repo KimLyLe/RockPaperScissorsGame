@@ -10,5 +10,6 @@
     <string name="tvComputer">Computer</string>
     <string name="tvYou">You</string>
     <string name="tvResult" />
+    <string name="title_activity_show_history">Game History</string>
 
 </resources>
